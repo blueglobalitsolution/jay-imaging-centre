@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay Imaging Centre | Rajkot's Leading Diagnostic Centre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- DESIGN SYSTEM STYLING --- */
+        :root {
+            --primary: #257eeb;
+            --primary-dark: #173254;
+            --secondary: #47576b;
+            --dark: #000000;
+            --light: #eff6ff;
+            --white: #ffffff;
+            --gray: #505f62;
+            --border: #eff6ff;
+            --transition: all 0.3s ease;
+            --shadow-high: rgba(71, 87, 107, 0.15) 0px 0px 15px 0px;
+            --shadow-mid: rgba(80, 95, 98, 0.1) 0px 0px 10px 0px;
+            --shadow-low: rgba(71, 87, 107, 0.15) 0px 0px 0px 0px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--dark);
+            font-family: sans-serif;
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Headings */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 32px;
+            border-radius: 100px;
+            /* radius-pill */
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 44px;
+            /* H2 */
+            line-height: 59.4px;
+            margin-bottom: 12px;
+            color: var(--primary-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 4px;
+            background: var(--primary);
+            margin: 12px auto 0;
+            border-radius: 100px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 72px;
+            /* spacing-7 */
+            font-family: sans-serif;
+            font-size: 16px;
+            /* Body L */
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background: var(--primary-dark);
+            color: var(--white);
+            font-size: 12px;
+            padding: 12px 0;
+            font-family: sans-serif;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-info a {
+            color: var(--white);
+            text-decoration: none;
+            margin-right: 24px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 65px;
+            width: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray);
+            font-family: sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            transition: var(--transition);
+            padding: 8px 0;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-dark);
+        }
+
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            height: 700px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(23, 50, 84, 0.7);
+            /* Using palette-6 */
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-content {
+            position: relative;
+            color: var(--white);
+            max-width: 700px;
+            z-index: 10;
+            padding: 0 24px;
+        }
+
+        .slide-content h2 {
+            font-size: 60px;
+            /* H1 */
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 81px;
+            letter-spacing: -2.4px;
+            color: var(--white);
+        }
+
+        .slide-content p {
+            font-family: sans-serif;
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--white);
+            background: rgba(23, 50, 84, 0.5);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 15;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .slider-arrow:hover {
+            background: var(--primary);
+        }
+
+        .arrow-prev {
+            left: 24px;
+        }
+
+        .arrow-next {
+            right: 24px;
+        }
+
+        /* Highlights / Assurances */
+        .assurances {
+            position: relative;
+            z-index: 10;
+            margin-top: -60px;
+            padding-bottom: 48px;
+        }
+
+        .assurance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .assurance-item {
+            background: var(--white);
+            padding: 36px 28px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(23, 50, 84, 0.08);
+            border: 1px solid rgba(37, 126, 235, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .assurance-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(37, 126, 235, 0.15);
+            border-color: rgba(37, 126, 235, 0.2);
+        }
+
+        .assurance-icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(37, 126, 235, 0.06);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .assurance-item:hover .assurance-icon-box {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(37, 126, 235, 0.25);
+            transform: scale(1.05);
+        }
+
+        .assurance-item h4 {
+            font-size: 18px;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .assurance-item p {
+            font-size: 13.5px;
+            color: var(--gray);
+            font-family: sans-serif;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* About Us Section */
+        .about {
+            padding: 96px 0;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 1.12fr 0.88fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+            font-family: sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .about-features {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .about-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: sans-serif;
+            font-size: 14px;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .about-feature-item i {
+            color: var(--primary);
+            font-size: 16px;
+            background: rgba(37, 126, 235, 0.08);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .value-card {
+            background: rgba(37, 126, 235, 0.03);
+            padding: 28px;
+            border-top: 4px solid var(--primary);
+            border-radius: 12px;
+            border-left: 1px solid rgba(37, 126, 235, 0.08);
+            border-right: 1px solid rgba(37, 126, 235, 0.08);
+            border-bottom: 1px solid rgba(37, 126, 235, 0.08);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-3px);
+            background: rgba(37, 126, 235, 0.06);
+            box-shadow: 0 10px 25px rgba(37, 126, 235, 0.05);
+        }
+
+        .value-card h5 {
+            font-size: 16px;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .value-card h5 i {
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .value-card p {
+            margin-bottom: 0;
+            font-size: 13.5px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Redesigned Stats Grid */
+        .about-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(71, 87, 107, 0.06);
+            border: 1px solid rgba(37, 126, 235, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            transition: all 0.4s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 45px rgba(37, 126, 235, 0.1);
+            border-color: rgba(37, 126, 235, 0.2);
+        }
+
+        .stat-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(37, 126, 235, 0.06);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover .stat-icon {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 8px 20px rgba(37, 126, 235, 0.3);
+        }
+
+        .stat-content h4 {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+
+        .stat-content p {
+            margin: 0;
+            font-family: sans-serif;
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Services Section */
+        /* Services Section */
+        .services {
+            padding: 96px 0;
+            background: linear-gradient(180deg, var(--light) 0%, #ffffff 100%);
+            position: relative;
+        }
+
+        .services .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .filter-container {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(37, 126, 235, 0.06);
+            padding: 6px;
+            border-radius: 100px;
+            gap: 4px;
+            margin-bottom: 48px;
+            border: 1px solid rgba(37, 126, 235, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: none;
+            color: var(--secondary);
+            padding: 10px 24px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: 0 4px 12px rgba(37, 126, 235, 0.15);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+            width: 100%;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(71, 87, 107, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(37, 126, 235, 0.08);
+            padding: 36px;
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), #52a1ff);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(37, 126, 235, 0.12);
+            border-color: rgba(37, 126, 235, 0.2);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon-wrapper {
+            width: 64px;
+            height: 64px;
+            background: rgba(37, 126, 235, 0.08);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--primary);
+            font-size: 28px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon-wrapper {
+            background: var(--primary);
+            color: var(--white);
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(37, 126, 235, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-family: sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .app-list {
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .app-list h5 {
+            color: var(--primary-dark);
+            margin-bottom: 14px;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .app-list ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .modality-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-family: sans-serif;
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.4;
+        }
+
+        .check-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 126, 235, 0.08);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .service-card .btn {
+            width: 100%;
+            text-align: center;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--light);
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .btn {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(37, 126, 235, 0.2);
+        }
+
+        .service-card .btn::after {
+            content: ' →';
+            transition: transform 0.3s ease;
+        }
+
+        .service-card .btn:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* Filter transition keyframes */
+        @keyframes cardFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .service-card.show {
+            animation: cardFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--white) 0%, var(--light) 100%);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 48px;
+            align-items: stretch;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 12px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(23, 50, 84, 0.05);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            height: 100%;
+        }
+
+        .contact-map {
+            width: 100%;
+            height: 100%;
+            min-height: 480px;
+            border: 0;
+            border-radius: 20px;
+            filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);
+        }
+
+        .info-item {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            align-items: center;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-item i {
+            font-size: 1.25rem;
+            color: var(--primary);
+            background: rgba(37, 126, 235, 0.08);
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .info-item:hover i {
+            background: var(--primary);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .info-item h4 {
+            color: var(--primary-dark);
+            font-size: 18px;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .info-item p {
+            color: var(--gray);
+            font-family: sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 48px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(23, 50, 84, 0.08);
+            border: 1px solid var(--border);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--primary-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 20px;
+            border: 1px solid var(--border);
+            background: #f8fafc;
+            border-radius: 100px;
+            /* Pill inputs */
+            font-family: sans-serif;
+            font-size: 14px;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        textarea.form-control {
+            border-radius: 20px;
+            /* Textareas can't be fully pill-shaped */
+            resize: vertical;
+        }
+
+        .form-control:focus {
+            outline: none;
+            background: var(--white);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(37, 126, 235, 0.12);
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(37, 126, 235, 0.15);
+            margin-top: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background: #080e1a; /* Premium dark navy */
+            color: rgba(255, 255, 255, 0.7);
+            padding: 80px 0 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1.2fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            font-size: 18px;
+            margin-bottom: 24px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 32px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .footer-logo-img {
+            height: 65px;
+            width: auto;
+            display: block;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-desc {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+        }
+
+        .footer-links-grid a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links-grid a:hover {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .footer-contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-contact-icon {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--primary);
+            width: 38px;
+            height: 38px;
+            border-radius: 10px; /* Rounded square instead of circle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .footer-contact-item:hover .footer-contact-icon {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .footer-contact-text {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+            font-size: 13.5px;
+        }
+
+        .footer-contact-text a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-social h4 {
+            color: var(--white);
+            font-size: 16px;
+            margin-bottom: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-social-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social-icon {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 16px;
+        }
+
+        .footer-social-icon:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 126, 235, 0.3);
+        }
+
+        .footer-divider {
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin: 40px 0 24px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary);
+        }
+
+        footer p strong {
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(23, 50, 84, 0.6);
+            /* chromatic tint overlay */
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: var(--white);
+            width: 90%;
+            max-width: 600px;
+            border-radius: 24px;
+            padding: 48px;
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-high);
+        }
+
+        .modal.open .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--dark);
+        }
+
+        .modal h3 {
+            color: var(--primary-dark);
+            font-size: 24px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+        }
+
+        .modal h4 {
+            color: var(--primary);
+            margin: 24px 0 12px;
+            font-size: 18px;
+        }
+
+        .modal p {
+            font-family: sans-serif;
+            color: var(--gray);
+        }
+
+        .modal ol,
+        .modal ul {
+            padding-left: 24px;
+            margin-bottom: 24px;
+            font-family: sans-serif;
+            color: var(--gray);
+        }
+
+        .modal li {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive Breakpoints */
+        @media(max-width: 992px) {
+
+            .assurances {
+                margin-top: 0;
+                padding: 48px 0;
+            }
+
+            .about-wrapper,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .slide-content h2 {
+                font-size: 44px;
+                line-height: 59.4px;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 24px;
+                box-shadow: var(--shadow-high);
+                gap: 16px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .top-bar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <a href="tel:+917009292927"><i class="fa-solid fa-phone"></i> +91-70092 92927</a>
+                <a href="mailto:info@jayimagingcentre.in"><i class="fa-solid fa-envelope"></i>
+                    info@jayimagingcentre.in</a>
+            </div>
+            <div>
+                <span><i class="fa-solid fa-location-dot"></i> Rajkot, Gujarat</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="media/brand-logo.png" alt="Jay Imaging Centre" class="logo-img">
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+                <div class="nav-toggle" id="navToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="home" class="hero-slider">
+            <div class="slide active"
+                style="background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1500&q=80');">
+                <div class="container">
+                    <div class="slide-content">
+                        <h2>Whole Body Multislice CT Scan</h2>
+                        <p>Experience maximum clarity, faster scans, and remarkably low radiation for trusted clinical
+                            insights.</p>
+                        <a href="#contact" class="btn">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide"
+                style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1500&q=80');">
+                <div class="container">
+                    <div class="slide-content">
+                        <h2>High Definition 3T-MRI & X-Ray</h2>
+                        <p>Offering extraordinary advanced imaging clarity and exceptional patient comfort under
+                            professional care.</p>
+                        <a href="#contact" class="btn">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <button class="slider-arrow arrow-prev" id="prevSlide"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="slider-arrow arrow-next" id="nextSlide"><i class="fa-solid fa-chevron-right"></i></button>
+        </section>
+
+        <section class="assurances">
+            <div class="container">
+                <div class="assurance-grid">
+                    <div class="assurance-item">
+                        <div class="assurance-icon-box">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h4>Prompt Service</h4>
+                        <p>Prioritized scan bookings, minimum waiting times, and swift check-ins.</p>
+                    </div>
+                    <div class="assurance-item">
+                        <div class="assurance-icon-box">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+                        <h4>Quick Report TAT</h4>
+                        <p>Get accurate, medical-grade diagnostic reports within hours, not days.</p>
+                    </div>
+                    <div class="assurance-item">
+                        <div class="assurance-icon-box">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+                        <h4>Experienced Staff</h4>
+                        <p>Certified clinical radiologists and compassionate support care staff.</p>
+                    </div>
+                    <div class="assurance-item">
+                        <div class="assurance-icon-box">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h4>Quality Care</h4>
+                        <p>State-of-the-art diagnostic screening and fully sanitized setups.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Us</h2>
+                <p class="section-subtitle">We Are The Trusted Medical Diagnostic Experts in Gujarat</p>
+
+                <div class="about-wrapper">
+                    <div class="about-text">
+                        <h3>Leading Diagnostic Centre in Rajkot</h3>
+                        <p>At Jay Imaging Centre, we are dedicated to providing the highest standard of precision
+                            medical diagnostics. By integrating state-of-the-art imaging technology with a highly
+                            experienced team of clinical radiologists and pathologists, we deliver clear, reliable, and
+                            swift diagnostic insights to patients across Rajkot and neighboring regions.</p>
+                        <p>We pride ourselves on offering a comprehensive suite of diagnostic modalities under one roof.
+                            Our focus on patient comfort, minimal radiation exposure, and rapid report turnaround times
+                            ensures an seamless diagnostic experience during critical health situations.</p>
+
+                        <ul class="about-features">
+                            <li class="about-feature-item">
+                                <i class="fa-solid fa-circle-check"></i> Advanced 1.5T Sempra MRI
+                            </li>
+                            <li class="about-feature-item">
+                                <i class="fa-solid fa-circle-check"></i> High-Precision Multislice CT
+                            </li>
+                            <li class="about-feature-item">
+                                <i class="fa-solid fa-circle-check"></i> Fully Automated Pathology Lab
+                            </li>
+                            <li class="about-feature-item">
+                                <i class="fa-solid fa-circle-check"></i> Expert Radiologist Advisory
+                            </li>
+                        </ul>
+
+                        <div class="values-grid">
+                            <div class="value-card">
+                                <h5><i class="fa-solid fa-crosshairs"></i> Our Mission</h5>
+                                <p>To furnish medical communities with ultimate clinical integrity through precise,
+                                    ethical, and high-fidelity diagnostic reports.</p>
+                            </div>
+                            <div class="value-card">
+                                <h5><i class="fa-solid fa-eye"></i> Our Vision</h5>
+                                <p>To lead diagnostic healthcare in Gujarat by making premium, state-of-the-art
+                                    diagnostic screening accessible to all.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>100%</h4>
+                                <p>Accurate Clinical Precision & Reliable Outcomes</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fa-solid fa-microchip"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Siemens 1.5T</h4>
+                                <p>Ultra-Modern Sempra MRI & High-Speed CT Systems</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fa-solid fa-house-medical"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>All-in-One</h4>
+                                <p>Radiology, Pathology, Cardiology & Health Packages</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Diagnostic Services</h2>
+                <p class="section-subtitle">Comprehensive analytical modalities designed for optimal precision care</p>
+
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">All Modalities</button>
+                    <button class="filter-btn" data-filter="radiology">Radiology & Imaging</button>
+                    <button class="filter-btn" data-filter="pathology">Pathology & Lab</button>
+                    <button class="filter-btn" data-filter="health">Health Packages</button>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card" data-category="radiology">
+                        <div class="service-icon-wrapper">
+                            <i class="fa-solid fa-magnet"></i>
+                        </div>
+                        <h3>Regular & Advanced MRI</h3>
+                        <p>Secure, radiation-free, painless imaging utilizing high-field magnetic parameters to yield
+                            exceptionally detailed internal structural view maps.</p>
+                        <div class="app-list">
+                            <h5>Key Modalities:</h5>
+                            <ul>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Brain with Advanced Neuro (Spectroscopy, DTI, Perfusion)
+                                </li>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Whole Body & Joint Cartilage Mapping
+                                </li>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    MRCP & MR Angiography/Venography
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="btn info-trigger" data-modal="mri">View Procedure Guide</button>
+                    </div>
+
+                    <div class="service-card" data-category="radiology">
+                        <div class="service-icon-wrapper">
+                            <i class="fa-solid fa-x-ray"></i>
+                        </div>
+                        <h3>Multislice CT Scan</h3>
+                        <p>High-speed computed tomographic processing producing crystal-clear body cross-sections for
+                            immediate trauma assessment or deep physical diagnosis.</p>
+                        <div class="app-list">
+                            <h5>Key Modalities:</h5>
+                            <ul>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    CT Angiography & KUB Urography
+                                </li>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Virtual Bronchoscopy & Colonoscopy
+                                </li>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    High Definition Dental 3D CT
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="btn info-trigger" data-modal="ct">View Procedure Guide</button>
+                    </div>
+
+                    <div class="service-card" data-category="radiology">
+                        <div class="service-icon-wrapper">
+                            <i class="fa-solid fa-baby"></i>
+                        </div>
+                        <h3>Sonography & Doppler</h3>
+                        <p>Advanced non-invasive wave structures used extensively to observe real-time blood dynamics,
+                            abdominal conditions, organ structures, and comprehensive fetal development.</p>
+                        <div class="app-list">
+                            <h5>Key Modalities:</h5>
+                            <ul>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    3D / 4D Live Ob-Gyn Sonography
+                                </li>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Whole Body Color Doppler Evaluations
+                                </li>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    High Resolution Tissue Elastography
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="btn info-trigger" data-modal="usg">View Procedure Guide</button>
+                    </div>
+
+                    <div class="service-card" data-category="radiology">
+                        <div class="service-icon-wrapper">
+                            <i class="fa-solid fa-bone"></i>
+                        </div>
+                        <h3>Digital X-Ray & Mammography</h3>
+                        <p>High-resolution digitizer imaging minimizing exposure while printing structural frameworks
+                            with excellent visual optimization.</p>
+                        <div class="app-list">
+                            <h5>Key Modalities:</h5>
+                            <ul>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Digital Mammography & OPG Cassette
+                                </li>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    IVP / HSG Specialized Procedures
+                                </li>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Portable Home/Bedside Digital X-Ray
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="btn info-trigger" data-modal="xray">View Procedure Guide</button>
+                    </div>
+
+                    <div class="service-card" data-category="pathology">
+                        <div class="service-icon-wrapper">
+                            <i class="fa-solid fa-microscope"></i>
+                        </div>
+                        <h3>Advanced Pathology Lab</h3>
+                        <p>Comprehensive bio-analysis covering hematology, biochemistry, immunology, and molecular
+                            profiling using automated analytical architectures.</p>
+                        <div class="app-list">
+                            <h5>Key Modalities:</h5>
+                            <ul>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Complete Blood Profiling & Metabolic Maps
+                                </li>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Hormonal Assays & Infectious Diseases
+                                </li>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    ECG / 2D Echo / Pulmonary Function Tests (PFT)
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="btn">Book Lab Test</a>
+                    </div>
+
+                    <div class="service-card" data-category="health">
+                        <div class="service-icon-wrapper">
+                            <i class="fa-solid fa-heart-circle-check"></i>
+                        </div>
+                        <h3>Preventive Health Check Ups</h3>
+                        <p>Specially curated screening packages focused on preventative evaluation and corporate
+                            healthcare wellness checks.</p>
+                        <div class="app-list">
+                            <h5>Key Packages:</h5>
+                            <ul>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Comprehensive Women's Health Screenings
+                                </li>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Executive Corporate Medical Audits
+                                </li>
+                                <li class="modality-item">
+                                    <span class="check-icon">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 3L4.5 8.5L2 6" stroke="#257eeb" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                    Cardiac Risks & Metabolic Evaluations
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="#contact" class="btn">Inquire Packages</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Reach out to arrange appointments or clarify medical imaging configurations
+                </p>
+
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <iframe class="contact-map" 
+                            src="https://maps.google.com/maps?q=Jay%20Imaging%20Centre,%20West%20Gate,%20150%20Feet%20Ring%20Rd,%20Near%20Raiya%20Chowkdi,%20Rajkot,%20Gujarat%20360007&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <div class="contact-form">
+                        <form id="appointmentForm">
+                            <div class="form-group">
+                                <label for="name">Full Patient Name</label>
+                                <input type="text" id="name" class="form-control" placeholder="Enter your full name"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="Enter mobile number"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="modality">Required Diagnostic Service</label>
+                                <select id="modality" class="form-control" required>
+                                    <option value="" disabled selected>Select Modality Type...</option>
+                                    <option value="mri">MRI (Magnetic Resonance Imaging)</option>
+                                    <option value="ct">CT Scan (Computed Tomography)</option>
+                                    <option value="usg">Sonography / Ultrasound</option>
+                                    <option value="xray">Digital X-Ray / Mammography</option>
+                                    <option value="pathology">Pathology Laboratory Test</option>
+                                    <option value="package">Preventive Health Package</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Additional Instructions / Symptoms</label>
+                                <textarea id="message" class="form-control" rows="4"
+                                    placeholder="Mention specific area to scan or doctor instructions..."></textarea>
+                            </div>
+                            <button type="submit" class="btn">Submit Booking Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: Logo & Description -->
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">
+                        <img src="media/brand-logo.png" alt="Jay Imaging Centre" class="footer-logo-img">
+                    </a>
+                    <p class="footer-desc">At Jay Imaging Centre, we are committed to providing the highest standard of
+                        medical diagnostic services and cutting-edge imaging modalities with expert precision.</p>
+                    <div class="footer-social">
+                        <h4>Follow Us</h4>
+                        <div class="footer-social-icons">
+                            <a href="https://www.facebook.com/JayImagingCentre" target="_blank" rel="noopener" class="footer-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/jayimagingcentre/" target="_blank" rel="noopener" class="footer-social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Col 2: Services -->
+                <div class="footer-col">
+                    <h3>Diagnostic Services</h3>
+                    <div class="footer-links-grid">
+                        <a href="#services">Advanced 1.5T MRI</a>
+                        <a href="#services">Multislice CT Scan</a>
+                        <a href="#services">Sonography & Doppler</a>
+                        <a href="#services">Digital X-Ray</a>
+                        <a href="#services">Pathology Lab</a>
+                        <a href="#services">Health Packages</a>
+                    </div>
+                </div>
+
+                <!-- Col 3: Contact Info -->
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-contact-list">
+                        <li class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="footer-contact-text">
+                                <a href="mailto:info@jayimagingcentre.in">info@jayimagingcentre.in</a>
+                            </div>
+                        </li>
+                        <li class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="footer-contact-text">
+                                <a href="tel:+917009292927">+91-70092 92927</a>
+                            </div>
+                        </li>
+                        <li class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="footer-contact-text">
+                                Ground Floor, Shop No. 1-2, Jay Imaging Centre, West Gate, 150 Feet Ring Rd, Near Raiya
+                                Chowkdi, Tirupati Nagar, Rajkot, Gujarat 360007
+                            </div>
+                        </li>
+                        <li class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="footer-contact-text">
+                                Mon - Sat: 8:00 AM to 8:00 PM<br>
+                                Sunday: Closed
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>Jay Imaging Centre</strong>. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="terms.html">Terms & Conditions</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="modal-mri">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>MRI Procedure Guidelines</h3>
+            <h4>When is it conducted?</h4>
+            <p>To identify micro-structural configurations, joint cartilage problems, complex brain imaging profiles,
+                vascular structures, and soft tissue configurations.</p>
+            <h4>Patient Guidelines & Preparation:</h4>
+            <ol>
+                <li>Remove all metallic items (jewelry, eyeglasses, keys, watch, dentures) prior to tracking fields.
+                </li>
+                <li>Inform the technician immediately if you have standard pacemakers, orthopedic plates, or metallic
+                    implants.</li>
+                <li>The process is radiation-free and completely painless. Standard procedures take between 15 to 45
+                    minutes.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-ct">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>CT Scan Procedure Guidelines</h3>
+            <h4>When is it conducted?</h4>
+            <p>To evaluate complex bone fractures, internal abdominal pathologies, organ infections, sudden internal
+                bleeding, or tracking oncology developments.</p>
+            <h4>Patient Guidelines & Preparation:</h4>
+            <ol>
+                <li>You will change into a standardized medical gown and remove any interfering external metal items.
+                </li>
+                <li>For contrast-enhanced scans (IV or Oral PO contrast), fasting for 4 to 6 hours before arrival may be
+                    mandatory.</li>
+                <li>An intercom system enables safe, continuous two-way communication with your technician throughout
+                    the fast imaging cross-section scan.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-usg">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Sonography Procedure Guidelines</h3>
+            <h4>When is it conducted?</h4>
+            <p>To evaluate kidney/gallbladder stone anomalies, track obstetric fetus progression parameters, monitor
+                visceral soft-tissue masses, and view color Doppler blood directional vectors.</p>
+            <h4>Patient Guidelines & Preparation:</h4>
+            <ol>
+                <li><strong>Abdominal evaluation:</strong> Fasting for at least 6 hours is highly recommended for proper
+                    visualization.</li>
+                <li><strong>Pelvic/Obstetric tracking:</strong> Drink abundant water 1 hour prior to your scan to keep
+                    the urinary bladder full.</li>
+                <li>A water-soluble gel will be applied over the target area to smoothly slide the wave transducer
+                    without discomfort.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-xray">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Digital X-Ray Guidelines</h3>
+            <h4>When is it conducted?</h4>
+            <p>Primarily utilized to screen skeletal configurations for injury, observe respiratory fields, track joint
+                degeneration conditions, or perform structural dynamic assessments (IVP/HSG).</p>
+            <h4>Patient Guidelines & Preparation:</h4>
+            <ol>
+                <li>Wear comfortable loose clothing. You may be requested to shift to a clean patient gown to safeguard
+                    structural detail clear printing.</li>
+                <li>Ensure all localized metallic objects are isolated to prevent dynamic visual shadows.</li>
+                <li>Inform our clinical support professionals explicitly if there is a possibility of active pregnancy.
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Responsive Menu Toggle logic
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        // Close responsive mobile menu once any section link is activated
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+            });
+        });
+
+        // Hero Automatic & Interactive Image Slider Logic
+        const slides = document.querySelectorAll('.slide');
+        const nextSlideBtn = document.getElementById('nextSlide');
+        const prevSlideBtn = document.getElementById('prevSlide');
+        let currentSlideIdx = 0;
+        let sliderTimer = setInterval(nextSlide, 5000);
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlideIdx = (currentSlideIdx + 1) % slides.length;
+            showSlide(currentSlideIdx);
+        }
+
+        function prevSlide() {
+            currentSlideIdx = (currentSlideIdx - 1 + slides.length) % slides.length;
+            showSlide(currentSlideIdx);
+        }
+
+        nextSlideBtn.addEventListener('click', () => {
+            nextSlide();
+            resetSliderTimer();
+        });
+
+        prevSlideBtn.addEventListener('click', () => {
+            prevSlide();
+            resetSliderTimer();
+        });
+
+        function resetSliderTimer() {
+            clearInterval(sliderTimer);
+            sliderTimer = setInterval(nextSlide, 5000);
+        }
+
+        // Active State Navigation Tracking via IntersectionObserver APIs
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        const observerOptions = {
+            root: null,
+            threshold: 0.3,
+            rootMargin: "-50px 0px 0px 0px"
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const currentId = entry.target.getAttribute('id');
+                    navItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.getAttribute('href') === `#${currentId}`) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => sectionObserver.observe(section));
+
+        // Interactive Service Cards Filter Architecture
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const serviceCards = document.querySelectorAll('.service-card');
+
+        // Add show class initially
+        serviceCards.forEach(card => card.classList.add('show'));
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterVal = btn.getAttribute('data-filter');
+
+                serviceCards.forEach(card => {
+                    card.classList.remove('show');
+                    if (filterVal === 'all' || card.getAttribute('data-category') === filterVal) {
+                        card.style.display = 'flex';
+                        void card.offsetWidth; // force reflow
+                        card.classList.add('show');
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Presentation Management Architecture
+        const infoTriggers = document.querySelectorAll('.info-trigger');
+        const activeModals = document.querySelectorAll('.modal');
+        const closeButtons = document.querySelectorAll('.modal-close');
+
+        infoTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const targetModalId = `modal-${trigger.getAttribute('data-modal')}`;
+                const targetModal = document.getElementById(targetModalId);
+                if (targetModal) targetModal.classList.add('open');
+            });
+        });
+
+        closeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.modal').classList.remove('open');
+            });
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('open');
+            }
+        });
+
+        // Appointment form submission confirmation simulation Handler
+        document.getElementById('appointmentForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const patientName = document.getElementById('name').value;
+            alert(`Thank you, ${patientName}. Your diagnostic appointment booking request has been successfully captured. Our scheduling desk will reach out shortly!`);
+            document.getElementById('appointmentForm').reset();
+        });
+    </script>
+</body>
+
+</html>

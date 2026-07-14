@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | Jay Imaging Centre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- DESIGN SYSTEM STYLING --- */
+        :root {
+            --primary: #257eeb;
+            --primary-dark: #173254;
+            --secondary: #47576b;
+            --dark: #000000;
+            --light: #eff6ff;
+            --white: #ffffff;
+            --gray: #505f62;
+            --border: #eff6ff;
+            --transition: all 0.3s ease;
+            --shadow-high: rgba(71, 87, 107, 0.15) 0px 0px 15px 0px;
+            --shadow-mid: rgba(80, 95, 98, 0.1) 0px 0px 10px 0px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: var(--dark);
+            font-family: sans-serif;
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Headings */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background: var(--primary-dark);
+            color: var(--white);
+            font-size: 12px;
+            padding: 12px 0;
+            font-family: sans-serif;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-info a {
+            color: var(--white);
+            text-decoration: none;
+            margin-right: 24px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 65px;
+            width: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray);
+            font-family: sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            transition: var(--transition);
+            padding: 8px 0;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: #080e1a; /* Premium dark navy */
+            color: rgba(255, 255, 255, 0.7);
+            padding: 80px 0 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+            font-family: sans-serif;
+            text-align: left;
+            margin-top: 96px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1.2fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            font-size: 18px;
+            margin-bottom: 24px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 32px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .footer-logo-img {
+            height: 65px;
+            width: auto;
+            display: block;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-desc {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 24px;
+        }
+
+        .footer-links-grid a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-links-grid a:hover {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .footer-contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-contact-icon {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--primary);
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .footer-contact-item:hover .footer-contact-icon {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .footer-contact-text {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+            font-size: 13.5px;
+        }
+
+        .footer-contact-text a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-social h4 {
+            color: var(--white);
+            font-size: 16px;
+            margin-bottom: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-social-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social-icon {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 16px;
+        }
+
+        .footer-social-icon:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 126, 235, 0.3);
+        }
+
+        .footer-divider {
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin: 40px 0 24px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary);
+        }
+
+        footer p strong {
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media(max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        /* --- Page Specific Styles --- */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 96px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .page-header h1 {
+            font-size: 44px; /* H2 */
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+            font-family: sans-serif;
+        }
+
+        .content-section {
+            padding: 96px 0;
+        }
+
+        .content-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: var(--shadow-high);
+            border: 1px solid var(--border);
+        }
+
+        .content-card h3 {
+            color: var(--primary-dark);
+            margin-top: 48px;
+            margin-bottom: 16px;
+            font-size: 24px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+        }
+        
+        .content-card h3:first-child {
+            margin-top: 0;
+        }
+
+        .content-card p {
+            margin-bottom: 24px;
+            color: var(--gray);
+            font-family: sans-serif;
+            line-height: 1.8;
+        }
+
+        .content-card ul {
+            padding-left: 24px;
+            margin-bottom: 24px;
+            color: var(--gray);
+            font-family: sans-serif;
+            line-height: 1.8;
+        }
+
+        .content-card ul li {
+            margin-bottom: 8px;
+        }
+
+        @media(max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-toggle {
+                display: block;
+            }
+            .top-bar {
+                display: none;
+            }
+            .content-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-info">
+                <a href="tel:+917009292927"><i class="fa-solid fa-phone"></i> +91-70092 92927</a>
+                <a href="mailto:info@jayimagingcentre.in"><i class="fa-solid fa-envelope"></i> info@jayimagingcentre.in</a>
+            </div>
+            <div>
+                <span><i class="fa-solid fa-location-dot"></i> Rajkot, Gujarat</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="media/brand-logo.png" alt="Jay Imaging Centre" class="logo-img">
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                </ul>
+                <div class="nav-toggle" id="navToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Terms & Conditions</h1>
+            <p>Please read our terms of use carefully before accessing our diagnostic services.</p>
+        </div>
+    </div>
+
+    <main class="content-section">
+        <div class="container">
+            <div class="content-card">
+                <h3>1. Website Usage and Agreement</h3>
+                <p>Welcome to the official website of Jay Imaging Centre. By accessing or using this website, you agree to comply with and be bound by these terms and conditions. The content, layout, design, data, graphics, and trademarks on this website are protected by intellectual property laws. You may not reproduce, duplicate, copy, or otherwise exploit our website material without explicit written consent.</p>
+                
+                <h3>2. Medical Disclaimer</h3>
+                <p><strong>Informational Purposes Only:</strong> The content provided on this website, including descriptions of diagnostic modalities (such as MRI, CT Scan, Sonography, X-Ray) and medical procedures, is strictly for educational and informational purposes.</p>
+                <p><strong>Not Medical Advice:</strong> Our online content should never substitute professional medical advice, consultation, diagnosis, or treatment. Always seek the advice of your physician or qualified health provider with any questions you may have regarding a medical condition.</p>
+                <p><strong>Report Interpretation:</strong> Jay Imaging Centre provides highly accurate imaging and pathology reports utilizing state-of-the-art equipment. However, the final clinical diagnosis and subsequent treatment plan must be determined exclusively by your referring doctor.</p>
+                
+                <h3>3. User Responsibilities & Appointments</h3>
+                <ul>
+                    <li><strong>Online Booking:</strong> When scheduling an appointment online, you must provide accurate personal and medical history details.</li>
+                    <li><strong>Valid Prescriptions:</strong> A valid prescription from a registered medical practitioner may be required for specific diagnostic procedures, particularly those involving radiation (like CT Scans or X-Rays) or specialized contrast agents.</li>
+                    <li><strong>Preparation:</strong> Patients are responsible for adhering to any pre-procedure instructions (e.g., fasting) provided during the booking process to ensure accurate test results.</li>
+                </ul>
+
+                <h3>4. Cancellation and Refund Policy</h3>
+                <ul>
+                    <li><strong>Cancellations:</strong> If you need to cancel or reschedule your diagnostic appointment, please notify us at least 24 hours prior to your scheduled time.</li>
+                    <li><strong>Refunds:</strong> Refunds for pre-paid online appointments will be granted if a procedure cannot be completed due to technical issues at our facility, or if the patient cancels within the permitted 24-hour window. Refunds may take 5-7 business days to reflect in your account.</li>
+                </ul>
+
+                <h3>5. Limitation of Liability</h3>
+                <p>Jay Imaging Centre and its affiliates will not be liable for any damages (including, without limitation, direct, indirect, incidental, or consequential damages) arising out of the use or inability to use this website, including technical downtime, errors in the online report portal, or communication delays.</p>
+
+                <h3>6. Modifications to Terms</h3>
+                <p>We reserve the right to revise these terms and conditions at any time without prior notice. By using this website, you are agreeing to be bound by the current version of these Terms and Conditions.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: Logo & Description -->
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <img src="media/brand-logo.png" alt="Jay Imaging Centre" class="footer-logo-img">
+                    </a>
+                    <p class="footer-desc">At Jay Imaging Centre, we are committed to providing the highest standard of
+                        medical diagnostic services and cutting-edge imaging modalities with expert precision.</p>
+                    <div class="footer-social">
+                        <h4>Follow Us</h4>
+                        <div class="footer-social-icons">
+                            <a href="https://www.facebook.com/JayImagingCentre" target="_blank" rel="noopener" class="footer-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/jayimagingcentre/" target="_blank" rel="noopener" class="footer-social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Col 2: Services -->
+                <div class="footer-col">
+                    <h3>Diagnostic Services</h3>
+                    <div class="footer-links-grid">
+                        <a href="index.html#services">Advanced 1.5T MRI</a>
+                        <a href="index.html#services">Multislice CT Scan</a>
+                        <a href="index.html#services">Sonography & Doppler</a>
+                        <a href="index.html#services">Digital X-Ray</a>
+                        <a href="index.html#services">Pathology Lab</a>
+                        <a href="index.html#services">Health Packages</a>
+                    </div>
+                </div>
+
+                <!-- Col 3: Contact Info -->
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-contact-list">
+                        <li class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="footer-contact-text">
+                                <a href="mailto:info@jayimagingcentre.in">info@jayimagingcentre.in</a>
+                            </div>
+                        </li>
+                        <li class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="footer-contact-text">
+                                <a href="tel:+917009292927">+91-70092 92927</a>
+                            </div>
+                        </li>
+                        <li class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="footer-contact-text">
+                                Ground Floor, Shop No. 1-2, Jay Imaging Centre, West Gate, 150 Feet Ring Rd, Near Raiya
+                                Chowkdi, Tirupati Nagar, Rajkot, Gujarat 360007
+                            </div>
+                        </li>
+                        <li class="footer-contact-item">
+                            <div class="footer-contact-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="footer-contact-text">
+                                Mon - Sat: 8:00 AM to 8:00 PM<br>
+                                Sunday: Closed
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>Jay Imaging Centre</strong>. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="terms.html">Terms & Conditions</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
